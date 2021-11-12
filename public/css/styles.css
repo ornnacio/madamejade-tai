@@ -1,0 +1,106 @@
+body {
+	background-color: #ffde59;
+}
+
+.navbar-light .nav-item .nav-link{
+	color: #ffde59;
+}
+
+.navbar-light .nav-item .nav-link:hover{
+	color: #ffefac;
+}
+
+.navbar-light .navbar-nav > .active > a, 
+.navbar-light .navbar-nav > .active > a:hover, 
+.navbar-light .navbar-nav > .active > a:focus{ 
+	color: #ffefac !important;
+}
+
+.dropdown-login{
+	background-color: #928c8c;
+	border: 0px;
+}
+
+.dropdown-item{
+	color: #ffde59;
+}
+
+.dropdown-item:hover{
+	color: #ffefac;
+	background-color: #928c8c;
+}
+
+.dropdown-item-text{
+	color: #ffde59;
+	text-align: center;
+	padding: 0px 5px;
+}
+
+.dropdown-divider{
+	border-color: black;
+}
+
+.container-fluid{
+	padding: 0;
+}
+
+.container-login{
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+
+.form-group, .logo-login{
+	margin: 20px;
+}
+
+.container-card{
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.card-erro{
+	background-color: #ffb3b3;
+	border-color: red;
+}
+
+.card-sucesso{
+	background-color: #b3ffb3;
+	border-color: green;
+}
+
+.btn-login{
+	background-color: black;
+	border-radius: 30px;
+	color: #ffde59;
+	width: 100px;
+}
+
+.btn-login:hover{
+	color: #ffefac;
+}
+
+.card-inicial{
+	background-color: #ffde59;
+	border: 3px solid #4b3740;
+}
+
+.icon-card-inicial{
+	width: 40%;
+}
+
+.btn-inicial{
+	background-color: #4b3740;
+	border-radius: 30px;
+	color: #ffde59;
+	width: 100px;
+}
+
+.btn-inicial:hover{
+	color: #ffefac;
+}
+
+.form-outline{
+	margin: 10px;
+}
