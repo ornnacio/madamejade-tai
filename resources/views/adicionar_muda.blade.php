@@ -7,8 +7,16 @@
 		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 		<script src="https://kit.fontawesome.com/f523544bad.js" crossorigin="anonymous"></script>
 		<title>Madame Jade - Mudas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     </head>
     <body>
+        <script>
+          console.log('teste');
+          $(document).ready(($) => {
+            $('#espécie').mask('SSSSSSSS SSSSSSSS');
+          })
+        </script>
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #928c8c;">
 			<a class="navbar-brand" href="{{ url('/') }}">
 				<img src="{{ asset('images/logo.png') }}" height="50" width="275">
@@ -46,7 +54,7 @@
 			<form method='POST' action="{{ route('salvar_muda') }}">
 				@csrf
 				<div class="form-group">
-					<input class="form-control" name="espécie" placeholder="Espécie" required>
+					<input class="form-control" name="espécie" id="espécie" placeholder="Esse campo possui máscara no formato xxxxxxxx xxxxxxxx" required>
 				</div>
 				<div class="form-group">
 					<div class="row">
