@@ -10,14 +10,14 @@ use PDF;
 class PedidosController extends Controller
 {
     public function show(){
-		
-		$arrPedidos = Pedido::all();
+
+		$arrPedidos = Pedido::paginate(10);
 		$arrProdutos = Produto::all();
 		return view('pedidos', ['pedidos' => $arrPedidos, 'produtos' => $arrProdutos]);
 	}
-	
+
 	public function search(Request $rq){
-		
+
 		if($rq){
 			$tipoPesquisa = $rq->tipo;
 			$termo = $rq->termo;
@@ -26,18 +26,18 @@ class PedidosController extends Controller
 			$arrPedidos = Pedido::all();
 		}
 		$arrProdutos = Produto::all();
-		
+
 		return view('pedidos', ['pedidos' => $arrPedidos, 'produtos' => $arrProdutos]);
 	}
-	
+
 	public function adicionar(){
-		
+
 		$arrProdutos = Produto::all();
-		return view('adicionar_pedido', ['produtos' => $arrProdutos]);	
+		return view('adicionar_pedido', ['produtos' => $arrProdutos]);
 	}
-	
+
 	public function store(Request $rq){
-		
+
 		if(!is_numeric($rq->total)){
 			return redirect('adicionar_pedido')->with('msg', 'Total inválido');
 		}else{
@@ -47,22 +47,22 @@ class PedidosController extends Controller
 				'total' => $rq->total,
 				'id_produto' => (int)$rq->id_produto,
 			]);
-			
+
 			return redirect('pedidos');
 		}
 	}
-	
+
 	public function edit($id){
-		
+
 		$p = Pedido::findOrFail($id);
 		$arrProdutos = Produto::all();
 		return view('editar_pedido', ['pedido' => $p, 'produtos' => $arrProdutos]);
 	}
-	
+
 	public function update(Request $rq, $id){
-		
+
 		$p = Pedido::findOrFail($id);
-		
+
 		if(!is_numeric($rq->total)){
 			return redirect()->route('editar_pedido', ['id' => $id])->with('msg', 'Total inválido');
 		}else{
@@ -73,37 +73,37 @@ class PedidosController extends Controller
 				'id_produto' => (int)$rq->id_produto,
 			]);
 		}
-		
+
 		return redirect('pedidos');
 	}
-	
+
 	public function destroy($id){
-		
+
 		$p = Pedido::findOrFail($id);
 		$p->delete();
-		
+
 		return redirect('pedidos');
 	}
-	
+
 	public function gerar(){
-		
+
 		$arrPedidos = Pedido::all();
-		
+
 		$string = '
 			<head>
 				<style>
 				body{
 					font-family: Arial, sans-serif;
 				}
-				
+
 				table, th, td {
 					padding: 5px;
 				}
-				
+
 				tr:nth-child(odd){
 					background-color: #ffde59;
 				}
-				
+
 				tr:nth-child(even){
 					background-color: #ffefac;
 				}
@@ -120,11 +120,11 @@ class PedidosController extends Controller
 						<th>Produto</th>
 					</tr>
 		';
-		
+
 		foreach ($arrPedidos as $p){
-			
+
 			$prod = Produto::findOrFail($p->id_produto);
-			
+
 			$string .= "
 				<tr>
 					<th>{$p->id}</th>
@@ -135,11 +135,11 @@ class PedidosController extends Controller
 				</tr>
 			";
 		}
-		
+
 		$string.= "
 			</table>
 		</body>";
-		
+
 		$pdf = PDF::loadHTML($string);
 		return $pdf->stream();
 	}

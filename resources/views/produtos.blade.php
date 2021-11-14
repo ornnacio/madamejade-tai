@@ -41,7 +41,7 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="container-fluid">
 			<form method="POST" action="{{ route('buscar_produto') }}">
 				@csrf
@@ -81,12 +81,13 @@
 					</div>
 				</div>
 			</form>
-			
+
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Nome</th>
+            <th scope="col">Imagem</th>
 						<th scope="col">Descrição</th>
 						<th scope="col">Preço</th>
 						<th scope="col">Quantidade</th>
@@ -95,10 +96,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($produtos as $p): ?>
+					<?php foreach($produtos as $p):
+              if (!$p->nome_arquivo) {
+                $filename = 'placeholder.png';
+              }else{
+                $filename = $p->nome_arquivo;
+              }
+            ?>
 						<tr>
 							<th><?= $p->id; ?></th>
 							<td><?= $p->nome; ?></td>
+              <td><img src='/storage/imagem/<?= $filename ?>' width="200"/></td>
 							<td><?= $p->desc; ?></td>
 							<td>R$<?= $p->preço; ?></td>
 							<td><?= $p->quantidade; ?> unidade(s)</td>
@@ -108,14 +116,16 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-			
-			
-			
+
+      <div class="d-flex justify-content-center">
+        {{$produtos->links()}}
+      </div>
+
 		</div>
-		
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
 	</body>
 </html>

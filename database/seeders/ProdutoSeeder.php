@@ -16,12 +16,13 @@ class ProdutoSeeder extends Seeder
     public function run()
     {
 		for($i = 0; $i < 10; $i++){
-			
+
 			DB::table('produtos')->insert([
 				'nome' => Str::random(8),
 				'desc' => Str::random(16),
 				'preço' => rand(1, 100),
 				'quantidade' => rand(0, 50),
+        'nome_arquivo' => null,
 			]);
 		}
     }
