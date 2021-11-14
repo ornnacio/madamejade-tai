@@ -7,32 +7,32 @@ use App\Models\Muda;
 
 class MudasController extends Controller
 {
-	
+
 	public function adicionar(){
-		
+
 		return view('adicionar_muda');
 	}
-	
+
     public function show(){
-		
-		$arrMudas = Muda::all();
+
+		$arrMudas = Muda::paginate(10);
 		return view('mudas', ['mudas' => $arrMudas]);
 	}
-	
+
 	public function search(Request $rq){
-		
+
 		if($rq){
 			$termo = $rq->termo;
 			$arrMudas = Muda::where('espécie', 'like', "%{$termo}%")->get();
 		}else{
 			$arrMudas = Muda::all();
 		}
-		
+
 		return view('mudas', ['mudas' => $arrMudas]);
 	}
-	
+
 	public function store(Request $rq){
-		
+
 		if(!is_numeric($rq->número_filhas)){
 			return redirect('adicionar_muda')->with('msg', 'Número de filhas inválido');
 		}else{
@@ -43,21 +43,21 @@ class MudasController extends Controller
 				'número_filhas' => $rq->número_filhas,
 			]);
 		}
-		
+
 		return redirect('mudas');
-		
+
 	}
-	
+
 	public function edit($id){
-		
+
 		$m = Muda::findOrFail($id);
 		return view('editar_muda', ['muda' => $m]);
 	}
-	
+
 	public function update(Request $r, $id){
-		
+
 		$m = Muda::findOrFail($id);
-		
+
 		if(!is_numeric($r->número_filhas)){
 			return redirect()->route('editar_muda', ['id' => $id])->with('msg', 'Número de filhas inválido');
 		}else{
@@ -68,15 +68,15 @@ class MudasController extends Controller
 				'número_filhas' => $r->número_filhas,
 			]);
 		}
-		
+
 		return redirect('mudas');
 	}
-	
+
 	public function destroy($id){
-		
+
 		$m = Muda::findOrFail($id);
 		$m->delete();
-		
+
 		return redirect('mudas');
 	}
 }
