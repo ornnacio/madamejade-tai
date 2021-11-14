@@ -39,7 +39,7 @@ class PedidosController extends Controller
 	public function store(Request $rq){
 
 		if(!is_numeric($rq->total)){
-			return redirect('adicionar_pedido')->with('msg', 'Total inválido');
+			return redirect('adicionar_pedido')->with('error', 'Total inválido');
 		}else{
 			Pedido::create([
 				'cliente' => $rq->cliente,
@@ -64,7 +64,7 @@ class PedidosController extends Controller
 		$p = Pedido::findOrFail($id);
 
 		if(!is_numeric($rq->total)){
-			return redirect()->route('editar_pedido', ['id' => $id])->with('msg', 'Total inválido');
+			return redirect()->route('editar_pedido', ['id' => $id])->with('error', 'Total inválido');
 		}else{
 			$p->update([
 				'cliente' => $rq->cliente,

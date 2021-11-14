@@ -29,7 +29,7 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="container-fluid">
 			<div style="display: flex; justify-content: center;">
 				<img src="{{ asset('images/logoext.png') }}" width="50%" class="logo-login">
@@ -49,22 +49,14 @@
 					<div style="display: flex; justify-content: center;">
 						<button type="submit" class="btn btn-login">Registrar</button>
 					</div>
+          @include('layouts/flash-message')
 				</form>
 			</div>
-			@if(session()->get('msgErro'))
-				<div class="container-card">
-					<div class="card card-erro">
-						<div class="card-body">
-							{{session()->get('msgErro')}}
-						</div>
-					</div>
-				</div>
-			@endif
 		</div>
-		
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		
+
     </body>
 </html>

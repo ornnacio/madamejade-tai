@@ -34,7 +34,7 @@ class MudasController extends Controller
 	public function store(Request $rq){
 
 		if(!is_numeric($rq->número_filhas)){
-			return redirect('adicionar_muda')->with('msg', 'Número de filhas inválido');
+			return redirect('adicionar_muda')->with('error', 'Número de filhas inválido');
 		}else{
 			Muda::create([
 				'espécie' => $rq->espécie,
@@ -59,7 +59,7 @@ class MudasController extends Controller
 		$m = Muda::findOrFail($id);
 
 		if(!is_numeric($r->número_filhas)){
-			return redirect()->route('editar_muda', ['id' => $id])->with('msg', 'Número de filhas inválido');
+			return redirect()->route('editar_muda', ['id' => $id])->with('error', 'Número de filhas inválido');
 		}else{
 			$m->update([
 				'espécie' => $r->espécie,

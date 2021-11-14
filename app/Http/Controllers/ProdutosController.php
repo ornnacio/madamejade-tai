@@ -18,9 +18,9 @@ class ProdutosController extends Controller
 	public function store(Request $rq){
 
 		if(!is_numeric($rq->preço)){
-			return redirect('adicionar_produto')->with('msg', 'Preço inválido');
+			return redirect('adicionar_produto')->with('error', 'Preço inválido');
 		}else if(!is_numeric($rq->quantidade)){
-			return redirect('adicionar_produto')->with('msg', 'Quantidade inválida');
+			return redirect('adicionar_produto')->with('error', 'Quantidade inválida');
 		}else{
 			$input = $rq->all();
 
@@ -70,9 +70,9 @@ class ProdutosController extends Controller
 		$p = Produto::findOrFail($id);
 
 		if(!is_numeric($r->preço)){
-			return redirect()->route('editar_produto', ['id' => $id])->with('msg', 'Preço inválido');
+			return redirect()->route('editar_produto', ['id' => $id])->with('error', 'Preço inválido');
 		}else if(!is_numeric($r->quantidade)){
-			return redirect()->route('editar_produto', ['id' => $id])->with('msg', 'Quantidade inválida');
+			return redirect()->route('editar_produto', ['id' => $id])->with('error', 'Quantidade inválida');
 		}else{
 
 			$image = $r->file("nome_arquivo");

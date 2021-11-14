@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-		<script src="https://kit.fontawesome.com/f523544bad.js" crossorigin="anonymous"></script>
-		<title>Madame Jade - Login</title>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  		<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+  		<script src="https://kit.fontawesome.com/f523544bad.js" crossorigin="anonymous"></script>
+  		<title>Madame Jade - Login</title>
     </head>
     <body>
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #928c8c;">
@@ -29,7 +29,7 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="container-fluid">
 			<div style="display: flex; justify-content: center;">
 				<img src="{{ asset('images/logoext.png') }}" width="50%" class="logo-login">
@@ -46,34 +46,15 @@
 					<div style="display: flex; justify-content: center;">
 						<button type="submit" class="btn btn-login">Entrar</button>
 					</div>
+          @include('layouts/flash-message')
 				</form>
 			</div>
 
-			@if(session()->get('msgErro'))
-				<div class="container-card">
-					<div class="card card-erro">
-						<div class="card-body">
-							{{session()->get('msgErro')}}
-						</div>
-					</div>
-				</div>
-			@endif
-
-			@if(session()->get('msgSucesso'))
-				<div class="container-card">
-					<div class="card card-sucesso">
-						<div class="card-body">
-							{{session()->get('msgSucesso')}}
-						</div>
-					</div>
-				</div>
-			@endif
-
 		</div>
-		
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		
+
     </body>
 </html>
