@@ -32,6 +32,9 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="{{ url('mudas') }}">Berçário de mudas</a>
 					</li>
+          <li class="nav-item">
+						<a class="nav-link" href="{{ url('vendas') }}">Gráfico de vendas</a>
+					</li>
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown">

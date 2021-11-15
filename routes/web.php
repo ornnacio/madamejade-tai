@@ -51,3 +51,7 @@ Route::post('/adicionar_muda', 'App\Http\Controllers\MudasController@store')->na
 Route::get('/editar_muda/{id}', 'App\Http\Controllers\MudasController@edit');
 Route::post('/editar_muda/{id}', 'App\Http\Controllers\MudasController@update')->name('editar_muda');
 Route::get('/excluir_muda/{id}', 'App\Http\Controllers\MudasController@destroy')->name('deletar_muda');
+
+//--vendas
+
+Route::get('/vendas', 'App\Http\Controllers\VendasController@index')->name('vendas');

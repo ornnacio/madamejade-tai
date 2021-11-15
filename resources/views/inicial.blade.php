@@ -24,6 +24,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url('mudas') }}">Berçário de mudas</a>
 					</li>
+          <li class="nav-item">
+						<a class="nav-link" href="{{ url('vendas') }}">Gráfico de vendas</a>
+					</li>
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown">
@@ -41,9 +44,9 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 		<div class="container">
-			
+
 			<div style="margin-top: 20px;">
 				<div class="row">
 					<div class="col">
@@ -97,10 +100,10 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
 	</body>
 </html>
