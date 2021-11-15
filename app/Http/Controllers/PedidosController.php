@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Produto;
 use App\Models\Pedido;
+use App\Mail\SendMailPedidos;
 use PDF;
 
 class PedidosController extends Controller
@@ -143,4 +145,14 @@ class PedidosController extends Controller
 		$pdf = PDF::loadHTML($string);
 		return $pdf->stream();
 	}
+
+  public function email(){
+
+    $pedidos = Pedido::all();
+
+    Mail::to('37123fa213@emailnax.com')
+          ->send(new SendMailPedidos($pedidos));
+
+    return redirect('pedidos')->with('success', 'Email enviado com sucesso!');
+  }
 }

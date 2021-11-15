@@ -40,6 +40,7 @@ Route::get('/editar_pedido/{id}', 'App\Http\Controllers\PedidosController@edit')
 Route::post('/editar_pedido/{id}', 'App\Http\Controllers\PedidosController@update')->name('editar_pedido');
 Route::get('/excluir_pedido/{id}', 'App\Http\Controllers\PedidosController@destroy')->name('deletar_pedido');
 Route::get('/relatorio_pedido', 'App\Http\Controllers\PedidosController@gerar')->name('relatorio_pedido');
+Route::get('/email_pedido', 'App\Http\Controllers\PedidosController@email')->name('email_pedido');
 
 //---mudas
 

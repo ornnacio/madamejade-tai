@@ -43,6 +43,7 @@
 		</nav>
 
 		<div class="container-fluid">
+      @include("layouts/flash-message")
 			<form method="POST" action="{{ route('buscar_pedido') }}">
 				@csrf
 				<div class="row" style="margin: auto">
@@ -75,6 +76,12 @@
 								<a class='btn btn-danger' href="{{ route('relatorio_pedido') }}">
 									<i class="far fa-file"></i>
 									Gerar Relatório PDF
+								</a>
+							</div>
+              <div class="form-outline">
+								<a class='btn btn-info' href="{{ route('email_pedido') }}">
+									<i class="far fa-envelope"></i>
+									Enviar listagem por email
 								</a>
 							</div>
 						</div>
