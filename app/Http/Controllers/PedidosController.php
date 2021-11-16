@@ -14,8 +14,7 @@ class PedidosController extends Controller
     public function show(){
 
 		$arrPedidos = Pedido::paginate(10);
-		$arrProdutos = Produto::all();
-		return view('pedidos', ['pedidos' => $arrPedidos, 'produtos' => $arrProdutos]);
+		return view('pedidos', ['pedidos' => $arrPedidos]);
 	}
 
 	public function search(Request $rq){
@@ -27,9 +26,8 @@ class PedidosController extends Controller
 		}else{
 			$arrPedidos = Pedido::all();
 		}
-		$arrProdutos = Produto::all();
 
-		return view('pedidos', ['pedidos' => $arrPedidos, 'produtos' => $arrProdutos]);
+		return view('pedidos', ['pedidos' => $arrPedidos]);
 	}
 
 	public function adicionar(){

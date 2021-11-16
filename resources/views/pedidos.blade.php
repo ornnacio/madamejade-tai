@@ -105,15 +105,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($pedidos as $p):
-						$prod = App\Models\Produto::findOrFail($p->id_produto);
-					?>
+					<?php foreach($pedidos as $p): ?>
 						<tr>
 							<th><?= $p->id; ?></th>
 							<td><?= $p->cliente; ?></td>
 							<td><?= $p->descrição; ?></td>
 							<td>R$<?= $p->total; ?></td>
-							<td><?= $prod->nome; ?></td>
+							<td><?= $p->produto->nome; ?></td>
 							<td><a style="font-size: 25px;" href="{{ route('editar_pedido', ['id' => $p->id]) }}"><i class="fas fa-edit"></i></a></td>
 							<td><a style="font-size: 25px; color: green;" href="{{ route('deletar_pedido', ['id' => $p->id]) }}" onclick="return confirm('Marcar pedido como entregue? Ele será removido da tabela.');" ><i class="far fa-check-square"></i></a></td>
 						</tr>
