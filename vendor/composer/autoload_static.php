@@ -548,6 +548,8 @@ class ComposerStaticInitee95cb8368ef1dcbcf3be784e4330f5a
     );
 
     public static $classMap = array (
+        'App\\Charts\\GraficoVendas' => __DIR__ . '/../..' . '/app/Charts/GraficoVendas.php',
+        'App\\Console\\Commands\\ChartMakeCommand' => __DIR__ . '/../..' . '/app/Console/Commands/ChartMakeCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -555,6 +557,7 @@ class ComposerStaticInitee95cb8368ef1dcbcf3be784e4330f5a
         'App\\Http\\Controllers\\MudasController' => __DIR__ . '/../..' . '/app/Http/Controllers/MudasController.php',
         'App\\Http\\Controllers\\PedidosController' => __DIR__ . '/../..' . '/app/Http/Controllers/PedidosController.php',
         'App\\Http\\Controllers\\ProdutosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProdutosController.php',
+        'App\\Http\\Controllers\\VendasController' => __DIR__ . '/../..' . '/app/Http/Controllers/VendasController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -569,6 +572,7 @@ class ComposerStaticInitee95cb8368ef1dcbcf3be784e4330f5a
         'App\\Models\\Muda' => __DIR__ . '/../..' . '/app/Models/Muda.php',
         'App\\Models\\Pedido' => __DIR__ . '/../..' . '/app/Models/Pedido.php',
         'App\\Models\\Produto' => __DIR__ . '/../..' . '/app/Models/Produto.php',
+        'App\\Models\\ProdutoCategoria' => __DIR__ . '/../..' . '/app/Models/ProdutoCategoria.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -700,6 +704,7 @@ class ComposerStaticInitee95cb8368ef1dcbcf3be784e4330f5a
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\MudaSeeder' => __DIR__ . '/../..' . '/database/seeders/MudaSeeder.php',
         'Database\\Seeders\\PedidoSeeder' => __DIR__ . '/../..' . '/database/seeders/PedidoSeeder.php',
+        'Database\\Seeders\\ProdutoCategoriaSeeder' => __DIR__ . '/../..' . '/database/seeders/ProdutoCategoriaSeeder.php',
         'Database\\Seeders\\ProdutoSeeder' => __DIR__ . '/../..' . '/database/seeders/ProdutoSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

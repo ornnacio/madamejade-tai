@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\ProdutoCategoria;
 use Illuminate\Support\Facades\File;
 use PDF;
 
@@ -12,7 +13,8 @@ class ProdutosController extends Controller
 
     public function adicionar(){
 
-		return view('adicionar_produto');
+      $categorias = ProdutoCategoria::all();
+		  return view('adicionar_produto')->with('categorias', $categorias);
 	}
 
 	public function store(Request $rq){
@@ -33,6 +35,8 @@ class ProdutosController extends Controller
 
 					 $input['nome_arquivo'] = $nome_arquivo;
 			 }
+
+
 
 			 Produto::create($input);
 
@@ -62,7 +66,8 @@ class ProdutosController extends Controller
 	public function edit($id){
 
 		$p = Produto::findOrFail($id);
-		return view('editar_produto', ['produto' => $p]);
+    $categorias = ProdutoCategoria::all();
+		return view('editar_produto', ['produto' => $p, 'categorias' => $categorias]);
 	}
 
 	public function update(Request $r, $id){
@@ -90,6 +95,7 @@ class ProdutosController extends Controller
 				'preço' => $r->preço,
 				'quantidade' => $r->quantidade,
 				'nome_arquivo' => $nome_arquivo,
+        'produto_categoria' => $r->produto_categoria,
 			]);
 		}
 
@@ -137,6 +143,7 @@ class ProdutosController extends Controller
 						<th>#</th>
 						<th>Nome</th>
 						<th>Descrição</th>
+            <th>Categoria</th>
 						<th>Preço</th>
 						<th>Quantidade</th>
 					</tr>
@@ -148,6 +155,7 @@ class ProdutosController extends Controller
 					<th>{$p->id}</th>
 					<td>{$p->nome}</td>
 					<td>{$p->desc}</td>
+          <td>{$p->categoria->nome}</td>
 					<td>R$ {$p->preço}</td>
 					<td>{$p->quantidade}</td>
 				</tr>

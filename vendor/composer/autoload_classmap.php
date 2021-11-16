@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Charts\\GraficoVendas' => $baseDir . '/app/Charts/GraficoVendas.php',
+    'App\\Console\\Commands\\ChartMakeCommand' => $baseDir . '/app/Console/Commands/ChartMakeCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -13,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\MudasController' => $baseDir . '/app/Http/Controllers/MudasController.php',
     'App\\Http\\Controllers\\PedidosController' => $baseDir . '/app/Http/Controllers/PedidosController.php',
     'App\\Http\\Controllers\\ProdutosController' => $baseDir . '/app/Http/Controllers/ProdutosController.php',
+    'App\\Http\\Controllers\\VendasController' => $baseDir . '/app/Http/Controllers/VendasController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -27,6 +30,7 @@ return array(
     'App\\Models\\Muda' => $baseDir . '/app/Models/Muda.php',
     'App\\Models\\Pedido' => $baseDir . '/app/Models/Pedido.php',
     'App\\Models\\Produto' => $baseDir . '/app/Models/Produto.php',
+    'App\\Models\\ProdutoCategoria' => $baseDir . '/app/Models/ProdutoCategoria.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
@@ -158,6 +162,7 @@ return array(
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
     'Database\\Seeders\\MudaSeeder' => $baseDir . '/database/seeders/MudaSeeder.php',
     'Database\\Seeders\\PedidoSeeder' => $baseDir . '/database/seeders/PedidoSeeder.php',
+    'Database\\Seeders\\ProdutoCategoriaSeeder' => $baseDir . '/database/seeders/ProdutoCategoriaSeeder.php',
     'Database\\Seeders\\ProdutoSeeder' => $baseDir . '/database/seeders/ProdutoSeeder.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
     'DeepCopy\\Exception\\CloneException' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',

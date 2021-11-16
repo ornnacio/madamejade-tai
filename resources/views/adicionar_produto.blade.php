@@ -54,6 +54,13 @@
 				<div class="form-group">
 					<textarea class="form-control" name="desc" placeholder="Descrição" rows="3" required></textarea>
 				</div>
+        <div class="form-group">
+					<select class="form-control" name="produto_categoria" placeholder="Categoria" required>
+            <?php foreach($categorias as $p): ?>
+							<option value="<?=$p->id?>"><?=$p->nome?></option>
+						<?php endforeach; ?>
+          </select>
+				</div>
 				<div class="form-group">
 					<input class="form-control" name="preço" placeholder="Preço" required>
 				</div>

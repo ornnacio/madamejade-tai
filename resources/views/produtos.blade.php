@@ -92,6 +92,7 @@
 						<th scope="col">Nome</th>
             <th scope="col">Imagem</th>
 						<th scope="col">Descrição</th>
+            <th scope="col">Categoria</th>
 						<th scope="col">Preço</th>
 						<th scope="col">Quantidade</th>
 						<th scope="col">Editar</th>
@@ -111,6 +112,7 @@
 							<td><?= $p->nome; ?></td>
               <td><img src='/storage/imagem/<?= $filename ?>' width="200"/></td>
 							<td><?= $p->desc; ?></td>
+              <td><?= $p->categoria->nome; ?></td>
 							<td>R$<?= $p->preço; ?></td>
 							<td><?= $p->quantidade; ?> unidade(s)</td>
 							<td><a style="font-size: 25px;" href="{{ route('editar_produto', ['id' => $p->id]) }}"><i class="fas fa-edit"></i></a></td>
