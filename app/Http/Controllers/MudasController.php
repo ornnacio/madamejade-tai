@@ -23,9 +23,9 @@ class MudasController extends Controller
 
 		if($rq){
 			$termo = $rq->termo;
-			$arrMudas = Muda::where('espécie', 'like', "%{$termo}%")->get();
+			$arrMudas = Muda::where('espécie', 'like', "%{$termo}%")->paginate(10);
 		}else{
-			$arrMudas = Muda::all();
+			$arrMudas = Muda::paginate(10);
 		}
 
 		return view('mudas', ['mudas' => $arrMudas]);

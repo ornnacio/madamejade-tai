@@ -22,9 +22,9 @@ class PedidosController extends Controller
 		if($rq){
 			$tipoPesquisa = $rq->tipo;
 			$termo = $rq->termo;
-			$arrPedidos = Pedido::where($tipoPesquisa, 'like', "%{$termo}%")->get();
+			$arrPedidos = Pedido::where($tipoPesquisa, 'like', "%{$termo}%")->paginate(10);
 		}else{
-			$arrPedidos = Pedido::all();
+			$arrPedidos = Pedido::paginate(10);
 		}
 
 		return view('pedidos', ['pedidos' => $arrPedidos]);

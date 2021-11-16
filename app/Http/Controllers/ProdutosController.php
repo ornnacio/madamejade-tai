@@ -55,9 +55,9 @@ class ProdutosController extends Controller
 		if($rq){
 			$tipoPesquisa = $rq->tipo;
 			$termo = $rq->termo;
-			$arrProdutos = Produto::where($tipoPesquisa, 'like', "%{$termo}%")->get();
+			$arrProdutos = Produto::where($tipoPesquisa, 'like', "%{$termo}%")->paginate(10);
 		}else{
-			$arrProdutos = Produto::all();
+			$arrProdutos = Produto::paginate(10);
 		}
 
 		return view('produtos', ['produtos' => $arrProdutos]);
